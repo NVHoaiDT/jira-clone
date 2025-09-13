@@ -1,7 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { dir, log } = require('console');
 
 module.exports = {
   mode: 'development',
@@ -23,13 +22,17 @@ module.exports = {
         use: ['style-loader', { loader: 'css-loader' }],
       },
       {
-        test: /\.(jpe?g|png|gif|woff2?|eot|ttf|otf|svg)$/,
+        test: /\.(jpe?g|png|gif)$/,
         use: [
           {
             loader: 'url-loader',
             options: { limit: 15000 },
           },
         ],
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/i,
+        type: 'asset/resource',
       },
     ],
   },
@@ -39,18 +42,19 @@ module.exports = {
     extensions: ['*', '.js', '.jsx'],
   },
   devtool: 'eval-source-map',
-  stats: 'minimal',
   devServer: {
-    static: {
-      directory: path.join(__dirname, 'dev'),
-    },
+    static: path.join(__dirname, 'dev'),
     historyApiFallback: true,
+    hot: true,
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       template: path.join(__dirname, 'src/index.html'),
       favicon: path.join(__dirname, 'src/favicon.png'),
+    }),
+    new webpack.DefinePlugin({
+      'process.env': JSON.stringify(process.env),
     }),
   ],
 };

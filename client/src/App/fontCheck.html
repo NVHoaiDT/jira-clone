@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+  <head>
+    <style>
+      @font-face {
+        font-family: 'jira';
+        src:
+          url('./assets/fonts/jira.woff') format('woff'),
+          url('./assets/fonts/jira.ttf') format('truetype'),
+          url('./assets/fonts/jira.svg') format('svg');
+        font-weight: normal;
+        font-style: normal;
+      }
+
+      .jira-font {
+        font-family: 'jira', sans-serif;
+        font-size: 24px;
+        line-height: 2;
+        margin: 10px;
+      }
+      .jira-icon:before {
+        content: '\e915'; /* Github */
+        font-family: 'jira', sans-serif;
+        font-size: 24px;
+        line-height: 2;
+        margin: 10px;
+      }
+
+      .fallback-test {
+        font-family: 'NonExistentFont', sans-serif;
+        font-size: 24px;
+        line-height: 2;
+        margin: 10px;
+      }
+      .fallback-icon:before {
+        content: '\e90f'; /* bug */
+        font-family: 'NonExistentFont', sans-serif;
+        font-size: 24px;
+        line-height: 2;
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Test 2: CSS content property -->
+    <div class="jira-font">
+      Text to compare------------------ (JiraFont)
+      <i class="jira-icon"></i>
+    </div>
+
+    <!-- Test 3: Compare with fallback font -->
+    <div class="fallback-test">
+      Text to compare------------------ (NonExistentFont)
+      <i class="fallback-icon"></i>
+  </body>
+</html>

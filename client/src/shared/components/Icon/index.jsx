@@ -8,9 +8,7 @@ const fontIconCodes = {
   [`stopwatch`]: '\\e914',
   [`task`]: '\\e910',
   [`story`]: '\\e911',
-  [`arrow-down`]: '\\e90a',
   [`arrow-left-circle`]: '\\e917',
-  [`arrow-up`]: '\\e90b',
   [`chevron-down`]: '\\e900',
   [`chevron-left`]: '\\e901',
   [`chevron-right`]: '\\e902',
@@ -34,6 +32,8 @@ const fontIconCodes = {
   [`reports`]: '\\e91b',
   [`page`]: '\\e919',
   [`calendar`]: '\\e91d',
+  [`arrow-up`]: '\\e90b',
+  [`arrow-down`]: '\\e90a',
   [`arrow-left`]: '\\e91e',
   [`arrow-right`]: '\\e91f',
 };
@@ -53,9 +53,12 @@ const defaultProps = {
   top: 0,
 };
 
-const Icon = ({ type, ...iconProps }) => (
-  <StyledIcon {...iconProps} data-testid={`icon:${type}`} code={fontIconCodes[type]} />
-);
+const Icon = ({ type, ...iconProps }) => {
+  console.log('Icon type:', type);
+  console.log('Icon code:', fontIconCodes[type]);
+  console.log('Icon code repr:', JSON.stringify(fontIconCodes[type]));
+  return <StyledIcon {...iconProps} data-testid={`icon:${type}`} code={fontIconCodes[type]} />;
+};
 
 Icon.propTypes = propTypes;
 Icon.defaultProps = defaultProps;

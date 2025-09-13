@@ -6,7 +6,7 @@ import Tooltip from 'shared/components/Tooltip';
 import feedbackImage from './assets/feedback.png';
 import { FeedbackDropdown, FeedbackImageCont, FeedbackImage, FeedbackParagraph } from './Styles';
 
-const AboutTooltip = tooltipProps => (
+const AboutTooltip = (tooltipProps) => (
   <Tooltip
     width={300}
     {...tooltipProps}
@@ -23,8 +23,8 @@ const AboutTooltip = tooltipProps => (
 
         <FeedbackParagraph>
           {'Read more on my website or reach out via '}
-          <a href="mailto:ivor@codetree.co">
-            <strong>ivor@codetree.co</strong>
+          <a href="mailto:nguyenvanhoai1020@gmail.com">
+            <strong>nguyenvanhoai1020@gmail.com</strong>
           </a>
         </FeedbackParagraph>
 
@@ -32,7 +32,7 @@ const AboutTooltip = tooltipProps => (
           <Button variant="primary">Visit Website</Button>
         </a>
 
-        <a href="https://github.com/oldboyxx/jira_clone" target="_blank" rel="noreferrer noopener">
+        <a href="https://github.com/NVHoaiDT/jira-clone" target="_blank" rel="noreferrer noopener">
           <Button style={{ marginLeft: 10 }} icon="github">
             Github Repo
           </Button>
