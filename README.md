@@ -4,7 +4,7 @@
 
 ![App screenshot](https://i.ibb.co/W3qVvCn/jira-optimized.jpg)
 
-## What is this and who is it for
+## About this project
 
 I've built this i project in my spare time as a showcase my insights to modern, real-world React codebase.
 
