@@ -1,0 +1,59 @@
+{
+  "name": "jira_clone_api",
+  "version": "1.0.0",
+  "author": "Nguyen Van Hoai",
+  "scripts": {
+    "dev": "nodemon --exec ts-node --files src/index.ts",
+    "dev:test": "cross-env NODE_ENV='test' DB_DATABASE='jira_test' npm start",
+    "dev:production": "pm2 start --name 'jira_api' node -- -r ./tsconfig-paths.js build/index.js",
+    "build": "cd src && tsc",
+    "pre-commit": "lint-staged"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.2",
+    "express": "^5.1.0",
+    "express-async-handler": "^1.2.0",
+    "faker": "^6.6.6",
+    "jsonwebtoken": "^9.0.2",
+    "lodash": "^4.17.21",
+    "module-alias": "^2.2.3",
+    "pg": "^8.16.3",
+    "reflect-metadata": "^0.2.2",
+    "striptags": "^3.2.0",
+    "typeorm": "^0.3.26"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "@types/faker": "^6.6.11",
+    "@types/jsonapi-serializer": "^3.6.8",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/lodash": "^4.17.20",
+    "@types/node": "^24.3.1",
+    "@typescript-eslint/eslint-plugin": "^8.42.0",
+    "@typescript-eslint/parser": "^8.42.0",
+    "cross-env": "^10.0.0",
+    "eslint": "^9.35.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-prettier": "^5.5.4",
+    "lint-staged": "^16.1.6",
+    "nodemon": "^3.1.10",
+    "prettier": "^3.6.2",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.9.2"
+  },
+  "_moduleDirectories": [
+    "src"
+  ],
+  "lint-staged": {
+    "*.ts": [
+      "eslint --fix",
+      "prettier --write",
+      "git add"
+    ]
+  }
+}
