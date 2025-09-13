@@ -4,9 +4,9 @@
 
 ![App screenshot](https://i.ibb.co/W3qVvCn/jira-optimized.jpg)
 
-## What is this and who is it for 🤷‍♀️
+## What is this and who is it for
 
-This is a showcase product I've built in my spare time as a showcase my insights to modern, real-world React codebase.
+I've built this i project in my spare time as a showcase my insights to modern, real-world React codebase.
 
 I hope that this codebase contains enough complexity while still being _relatively_ easy to understand.
 
@@ -26,7 +26,7 @@ I hope that this codebase contains enough complexity while still being _relative
 
 🗄️ API written in TypeScript and using TypeORM
 
-## Setting up development environment 🛠
+## Setting up development environment
 
 First, install [postgreSQL](https://www.postgresql.org/) if you don't have it already and create a database named `jira_clone_development`
 
@@ -58,7 +58,7 @@ Start the app
 
 -  App should now be running on `http://localhost:8080/`
 
-## Running cypress end-to-end tests 🚥
+## Running cypress end-to-end tests
 
 -  Set up development environment
 -  Create a database named `jira_clone_test` and start the api with
@@ -68,5 +68,5 @@ cd api && pnpm run start:test
 ```
 
 ```bash
-`cd client && pnpm run test:cypress`
+cd client && pnpm run test:cypress
 ```
