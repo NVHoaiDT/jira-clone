@@ -73,27 +73,20 @@ export const font = {
   medium: 'font-family: "CircularStdMedium"; font-weight: normal;',
   bold: 'font-family: "CircularStdBold"; font-weight: normal;',
   black: 'font-family: "CircularStdBlack"; font-weight: normal;',
-  size: size => `font-size: ${size}px;`,
+  size: (size) => `font-size: ${size}px;`,
 };
 
 export const mixin = {
-  darken: (colorValue, amount) =>
-    Color(colorValue)
-      .darken(amount)
-      .string(),
-  lighten: (colorValue, amount) =>
-    Color(colorValue)
-      .lighten(amount)
-      .string(),
-  rgba: (colorValue, opacity) =>
-    Color(colorValue)
-      .alpha(opacity)
-      .string(),
+  darken: (colorValue, amount) => Color(colorValue).darken(amount).string(),
+  lighten: (colorValue, amount) => Color(colorValue).lighten(amount).string(),
+  rgba: (colorValue, opacity) => Color(colorValue).alpha(opacity).string(),
   boxShadowMedium: css`
     box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
   `,
   boxShadowDropdown: css`
-    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.31) 0px 0px 1px;
+    box-shadow:
+      rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
+      rgba(9, 30, 66, 0.31) 0px 0px 1px;
   `,
   truncateText: css`
     overflow: hidden;
@@ -114,7 +107,7 @@ export const mixin = {
     bottom: 0;
     left: 0;
   `,
-  placeholderColor: colorValue => css`
+  placeholderColor: (colorValue) => css`
     ::-webkit-input-placeholder {
       color: ${colorValue} !important;
       opacity: 1 !important;
@@ -149,8 +142,8 @@ export const mixin = {
       background: ${background};
     }
   `,
-  backgroundImage: imageURL => css`
-    background-image: url("${imageURL}");
+  backgroundImage: (imageURL) => css`
+    background-image: url('${imageURL}');
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: cover;
