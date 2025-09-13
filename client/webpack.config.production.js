@@ -39,13 +39,8 @@ module.exports = {
         ],
       },
       {
-        test: /\.(woff2?|eot|ttf|otf)$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: { name: '[name]-[hash].[ext]' },
-          },
-        ],
+        test: /\.(woff|woff2|eot|ttf|otf)$/i,
+        type: 'asset/resource',
       },
     ],
   },
