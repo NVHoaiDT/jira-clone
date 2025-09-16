@@ -54,9 +54,6 @@ const defaultProps = {
 };
 
 const Icon = ({ type, ...iconProps }) => {
-  console.log('Icon type:', type);
-  console.log('Icon code:', fontIconCodes[type]);
-  console.log('Icon code repr:', JSON.stringify(fontIconCodes[type]));
   return <StyledIcon {...iconProps} data-testid={`icon:${type}`} code={fontIconCodes[type]} />;
 };
 
