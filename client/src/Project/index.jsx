@@ -2,6 +2,8 @@ import React from 'react';
 import { Routes, Route, Navigate, Outlet, useLocation, useNavigate } from 'react-router-dom';
 
 import useApi from 'shared/hooks/api';
+import useQueryParamModal from 'shared/hooks/queryParamModal';
+
 import { updateArrayItemById } from 'shared/utils/javascript';
 import { createQueryParamModalHelpers } from 'shared/utils/queryParamModal';
 import { PageLoader, PageError, Modal } from 'shared/components';
@@ -12,14 +14,17 @@ import Board from './Board';
 import IssueSearch from './IssueSearch';
 import IssueCreate from './IssueCreate';
 import ProjectSettings from './ProjectSettings';
+
 import { ProjectPage } from './Styles';
 
 const Project = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const issueSearchModalHelpers = createQueryParamModalHelpers('issue-search');
-  const issueCreateModalHelpers = createQueryParamModalHelpers('issue-create');
+  // const issueSearchModalHelpers = createQueryParamModalHelpers('issue-search');
+  // const issueCreateModalHelpers = createQueryParamModalHelpers('issue-create');
+  const issueSearchModalHelpers = useQueryParamModal('issue-search');
+  const issueCreateModalHelpers = useQueryParamModal('issue-create');
 
   const [{ data, error, setLocalData }, fetchProject] = useApi.get('/project');
 
