@@ -29,11 +29,11 @@ const ProjectBoardFilters = ({ projectUsers, defaultFilters, filters, mergeFilte
       <SearchInput
         icon="search"
         value={searchTerm}
-        onChange={value => mergeFilters({ searchTerm: value })}
+        onChange={(value) => mergeFilters({ searchTerm: value })}
       />
       <Avatars>
-        {projectUsers.map(user => (
-          <AvatarIsActiveBorder key={user.id} isActive={userIds.includes(user.id)}>
+        {projectUsers.map((user) => (
+          <AvatarIsActiveBorder key={user.id} $isActive={userIds.includes(user.id)}>
             <StyledAvatar
               avatarUrl={user.avatarUrl}
               name={user.name}
@@ -44,14 +44,14 @@ const ProjectBoardFilters = ({ projectUsers, defaultFilters, filters, mergeFilte
       </Avatars>
       <StyledButton
         variant="empty"
-        isActive={myOnly}
+        $isActive={myOnly}
         onClick={() => mergeFilters({ myOnly: !myOnly })}
       >
         Only My Issues
       </StyledButton>
       <StyledButton
         variant="empty"
-        isActive={recent}
+        $isActive={recent}
         onClick={() => mergeFilters({ recent: !recent })}
       >
         Recently Updated

@@ -4,7 +4,6 @@ import { useLocation } from 'react-router-dom';
 import { Draggable } from 'react-beautiful-dnd';
 
 import { IssueTypeIcon, IssuePriorityIcon } from 'shared/components';
-
 import { IssueLink, Issue, Title, Bottom, Assignees, AssigneeAvatar } from './Styles';
 
 const propTypes = {
@@ -16,8 +15,10 @@ const propTypes = {
 const ProjectBoardListIssue = ({ projectUsers, issue, index }) => {
   const location = useLocation();
 
-  // Extract the base path from location.pathname
-  // If current path is "/project/board", we want "/project"
+  /* 
+    Extract the base path from location.pathname
+    If current path is "/project/board", we want "/project"
+  */
   const basePath = location.pathname.split('/').slice(0, -1).join('/') || '/project';
 
   const assignees = issue.userIds.map((userId) => projectUsers.find((user) => user.id === userId));
@@ -32,7 +33,7 @@ const ProjectBoardListIssue = ({ projectUsers, issue, index }) => {
           {...provided.draggableProps}
           {...provided.dragHandleProps}
         >
-          <Issue isBeingDragged={snapshot.isDragging && !snapshot.isDropAnimating}>
+          <Issue $isBeingDragged={snapshot.isDragging && !snapshot.isDropAnimating}>
             <Title>{issue.title}</Title>
             <Bottom>
               <div>

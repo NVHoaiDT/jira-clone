@@ -22,7 +22,7 @@ const defaultProps = {
 };
 
 const Input = forwardRef(({ icon, className, filter, onChange, ...inputProps }, ref) => {
-  const handleChange = event => {
+  const handleChange = (event) => {
     if (!filter || filter.test(event.target.value)) {
       onChange(event.target.value, event);
     }
@@ -31,7 +31,7 @@ const Input = forwardRef(({ icon, className, filter, onChange, ...inputProps }, 
   return (
     <StyledInput className={className}>
       {icon && <StyledIcon type={icon} size={15} />}
-      <InputElement {...inputProps} onChange={handleChange} hasIcon={!!icon} ref={ref} />
+      <InputElement {...inputProps} onChange={handleChange} $hasIcon={!!icon} ref={ref} />
     </StyledInput>
   );
 });

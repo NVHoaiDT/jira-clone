@@ -10,7 +10,7 @@ export const StyledButton = styled.button`
   height: 32px;
   vertical-align: middle;
   line-height: 1;
-  padding: 0 ${(props) => (props.iconOnly ? 9 : 12)}px;
+  padding: 0 ${(props) => (props.$iconOnly ? 9 : 12)}px;
   white-space: nowrap;
   border-radius: 3px;
   transition: all 0.1s;

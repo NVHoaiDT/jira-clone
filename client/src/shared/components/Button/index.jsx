@@ -42,8 +42,8 @@ const Button = forwardRef(
         onClick={handleClick}
         variant={variant}
         disabled={disabled || isWorking}
-        isWorking={isWorking}
-        iconOnly={!children}
+        $isWorking={isWorking}
+        $iconOnly={!children}
         ref={ref}
       >
         {isWorking && <StyledSpinner size={26} color={getIconColor(variant)} />}
