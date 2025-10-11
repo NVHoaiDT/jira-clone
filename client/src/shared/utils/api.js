@@ -1,5 +1,4 @@
 import axios from 'axios';
-import process from 'process';
 
 import history from 'browserHistory';
 import toast from 'shared/utils/toast';
@@ -7,7 +6,7 @@ import { objectToQueryString } from 'shared/utils/url';
 import { getStoredAuthToken, removeStoredAuthToken } from 'shared/utils/authToken';
 
 const defaults = {
-  baseURL: process.env.API_URL || 'http://localhost:3000',
+  baseURL: 'https://jira-clone-api.up.railway.app',
   headers: () => ({
     'Content-Type': 'application/json',
     Authorization: getStoredAuthToken() ? `Bearer ${getStoredAuthToken()}` : undefined,

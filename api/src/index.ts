@@ -23,12 +23,6 @@ const establishDatabaseConnection = async (): Promise<void> => {
 const initializeExpress = (): void => {
   const app = express();
 
-  /*   app.use(
-    cors({
-      origin: 'https://hdt-jira-clone.vercel.app',
-      credentials: true,
-    }),
-  ); */
   app.use(cors());
   app.use(express.json());
   app.use(express.urlencoded());
