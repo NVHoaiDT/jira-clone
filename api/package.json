@@ -6,9 +6,9 @@
     "dev": "nodemon --exec ts-node --files src/index.ts",
     "dev:test": "cross-env NODE_ENV='test' DB_DATABASE='jira_test' npm start",
     "dev:production": "pm2 start --name 'jira_api' node -- -r ./tsconfig-paths.js build/index.js",
-    "build": "cd src && tsc",
+    "build": "tsc",
     "pre-commit": "lint-staged",
-    "start": "node build/index.js"
+    "start": "node -r ./tsconfig-paths.js build/index.js"
   },
   "dependencies": {
     "cors": "^2.8.5",
@@ -22,7 +22,8 @@
     "pg": "^8.16.3",
     "reflect-metadata": "^0.2.2",
     "striptags": "^3.2.0",
-    "typeorm": "^0.3.26"
+    "typeorm": "^0.3.26",
+    "tsconfig-paths": "^4.2.0"
   },
   "devDependencies": {
     "@types/cors": "^2.8.19",
@@ -44,7 +45,6 @@
     "nodemon": "^3.1.10",
     "prettier": "^3.6.2",
     "ts-node": "^10.9.2",
-    "tsconfig-paths": "^4.2.0",
     "typescript": "^5.9.2"
   },
   "_moduleDirectories": [
