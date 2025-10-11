@@ -56,7 +56,7 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify('production'),
-        API_URL: JSON.stringify('https://jira-clone-api.nvhoaidt.com'),
+        API_URL: JSON.stringify('https://jira-clone-api.up.railway.app'),
       },
     }),
     new webpack.IgnorePlugin({
