@@ -23,7 +23,12 @@ const establishDatabaseConnection = async (): Promise<void> => {
 const initializeExpress = (): void => {
   const app = express();
 
-  app.use(cors());
+  app.use(
+    cors({
+      origin: process.env.CLIENT_URL || 'http://localhost:8080',
+      credentials: true,
+    }),
+  );
   app.use(express.json());
   app.use(express.urlencoded());
 
