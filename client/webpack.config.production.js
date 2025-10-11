@@ -59,6 +59,9 @@ module.exports = {
         API_URL: JSON.stringify('https://jira-clone-api.nvhoaidt.com'),
       },
     }),
-    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+    new webpack.IgnorePlugin({
+      resourceRegExp: /^\.\/locale$/,
+      contextRegExp: /moment$/,
+    }),
   ],
 };
