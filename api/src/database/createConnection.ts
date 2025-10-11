@@ -17,16 +17,28 @@ import * as entities from 'entities';
 //     synchronize: true,
 //   });
 
-const AppDataSource = new DataSource({
-  type: 'postgres',
-  host: process.env.DB_HOST,
-  port: Number(process.env.DB_PORT),
-  username: process.env.DB_USERNAME,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_DATABASE,
-  entities: Object.values(entities),
-  synchronize: true,
-});
+const AppDataSource = new DataSource(
+  process.env.DATABASE_URL
+    ? {
+        type: 'postgres',
+        url: process.env.DATABASE_URL,
+        entities: Object.values(entities),
+        synchronize: true,
+        ssl: {
+          rejectUnauthorized: false,
+        },
+      }
+    : {
+        type: 'postgres',
+        host: process.env.DB_HOST,
+        port: Number(process.env.DB_PORT),
+        username: process.env.DB_USERNAME,
+        password: process.env.DB_PASSWORD,
+        database: process.env.DB_DATABASE,
+        entities: Object.values(entities),
+        synchronize: true,
+      },
+);
 
 const createDatabaseConnection = async (): Promise<void> => {
   try {
@@ -34,7 +46,7 @@ const createDatabaseConnection = async (): Promise<void> => {
       await AppDataSource.initialize();
       console.info('✨ Database connection established !');
       console.info('🔒 Database name:', AppDataSource.options.database);
-      //console.info('📜 Database schema:', AppDataSource.options.entities);
+      console.info('📜 Database schema:', AppDataSource.options.entities);
     }
   } catch (error) {
     console.log('🐛 Error during DataSource initialization: ', error);
